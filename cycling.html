@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FT.COLLINS FITNESS & WELLNESS: Template</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    
+
+
+<link rel="manifest" href="images/site.webmanifest">
+  </head>
+  <body>
+    <div>
+   <header>
+      <div>
+	  <h1>🕉️FT. COLLINS FITNESS & WELLNESS🕉️</h1>
+        <a href="index.html"><img src="images/cycling.jpg" alt="cycling image"></a>
+	</div>
+        
+      <div>
+        
+      </div>
+    </header>
+
+    
+	<!-- navigation -->
+    <nav> 
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hiking.html">Hiking</a></li>
+        <li><a href="meditation.html">Meditations</a></li>
+		<li><a href="cycling.html">Cycling</a></li>
+		<li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <main>
+		
+       <header><h1>Cycling a Low Impact Way to Exercise</h1></header>
+	   
+	   <h3>Benefits</h3>
+	   
+
+    <section class="page">
+
+      <div class="tabs">
+	  
+		<ul class="tab-list">
+			<li class="active"><a class="tab-control" href="#tab-1">Weight Control</a></li>
+			<li><a class="tab-control" href="#tab-2">Leg Strength</a></li>
+			<li><a class="tab-control" href="#tab-3">Beginner Friendly</a></li>
+			<li><a class="tab-control" href="#tab-4">Boosts Brain Power</a></li>
+		</ul>
+		<div class="tab-panel active" id="tab-1">Weight loss is one advantage to cycling. Regular cycling, 
+		especially at a high intensity, can help lower your body fat. 
+		Additional studies suggest that including sprint and strength training with regular cycling may temporarily 
+		increase your metabolism and build muscle, which allows you to burn more calories, even while at rest</div>
+		<div class="tab-panel" id="tab-2">
+            <p>Cycling improves overall function in your lower body and strengthens your leg muscles without overstressing your joints. It targets your quads, glutes, hamstrings, and calves.</p>
+        </div>		
+		<div class="tab-panel" id="tab-3">
+            <p>Riding a bike is fairly simple. If you have difficulty with a standard bicycle, stationary bikes are a great alternative.
+
+If you’re new to fitness or bouncing back from an injury or illness, you can cycle at a low intensity. As you get more fit, you can increase the intensity or continue to cycle at a chill pace.
+
+Studies have shown that even sedentary people reap the health benefits of cycling, so it can be a great introduction for exercise novices</p>
+        </div>	
+        <div class="tab-panel" id="tab-4">
+            <p>Cycling can ease feelings of stress, depression, or anxiety. Focusing on the road or your cadence when cycling can help you develop concentration and awareness of the present moment. This may help take your focus away from the mental chatter of your day.
+
+Research backs this up. One study found that biking outside improved cognitive functioning and well-being for older adults (5Trusted Source).
+
+If you find yourself feeling lethargic, listless, or like your brain is moving slowly, get on your bike for at least 10 minutes.
+
+Exercise promotes the release of endorphins in your body, which helps you feel better while lowering your stress levels. As the study above found, exercise outdoors only increases these effects</p>
+        </div>		
+      </div><!-- .tabs -->
+
+    </section><!-- .page -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	
+	<div id="keys">??</div>
+<div>Enter Cyling Style as Key: <input type="text" id="searchKey"></input></div>
+<div id="result"></div>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2022. All Rights Reserved.</p>
+      <p><a href="mailto:michael.tinnin@hotmail.com">ftcollinsWellness@gmail.com</a></p>
+	  	<a href=https://www.facebook.com target="blank"><img src="images/image2.png" alt="facebook logo"></a>
+      <a href=https://www.twitter.com target="blank"><img src="images/image3.png" alt="twitter logo"></a>
+    </footer>
+    </div>
+	<script src="scripts/script.js"></script>
+	 <script>
+$('.tab-list').each(function(){                   // Find lists of tabs
+  var $this = $(this);                            // Store this list
+  var $tab = $this.find('li.active');             // Get the active list item
+  var $link = $tab.find('a');                     // Get link from active tab
+  var $panel = $($link.attr('href'));             // Get active panel
+
+  $this.on('click', '.tab-control', function(e) { // When click on a tab
+    e.preventDefault();                           // Prevent link behavior
+    var $link = $(this),                          // Store the current link
+        id = this.hash;                           // Get href of clicked tab 
+
+    if (id && !$link.is('.active')) {             // If not currently active
+      $panel.removeClass('active');               // Make panel inactive
+      $tab.removeClass('active');                 // Make tab inactive
+
+      $panel = $(id).addClass('active');          // Make new panel active
+      $tab = $link.parent().addClass('active');   // Make new tab active 
+    }
+  });
+});	
+
+var dataJSON = '{ "Mountain Biking," : "Monday Evenings", "Road Biking, " : "Wednesday Afternoon", "Cruising, " : "Sunday Evening"}';
+var data = JSON.parse(dataJSON);
+var keyList = '<p>Defined Keys: ';
+for (var key in data) {
+	keyList += key + " ";
+}
+keyList += '</p>';
+var keyArea = document.getElementById('keys');
+keyArea.innerHTML = keyList;
+
+
+
+var abreviation = document.getElementById("searchKey");
+abreviation.addEventListener('blur', returnState, false);
+var rideTime = document.getElementById("result");
+
+function returnState() {
+	var input = document.getElementById('searchKey').value;
+	if(input === "Mountain Biking"){
+	
+	rideTime.innerHTML = "Mountain Biking meets Monday Evenings";
+	
+	}
+	else if(input === "Road Biking"){
+	rideTime.innerHTML = "Road Biking meets Wednesday afternoon";
+	}
+	else if(input === "Cruising"){
+	
+	rideTime.innerHTML = "Cruising rides are Sunday evening.";
+	}
+	
+	else{
+	
+		rideTime.innerHTML = "Code: " + input + " translates to ?";
+	}
+}
+
+
+	</script>
+  </body>
+</html>
+
+<!--
+  Student Name: Michael Tinnin
+  File Name: template.html
+  Date: 4/18/2022
+-->

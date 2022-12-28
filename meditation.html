@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FT.COLLINS FITNESS & WELLNESS: Template</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+  
+
+
+<link rel="manifest" href="images/site.webmanifest">
+  </head>
+  <body>
+    <div>
+   <header>
+      <div>
+	  <h1>🕉️FT. COLLINS FITNESS & WELLNESS🕉️</h1>
+        <a href="index.html"><img src="images/meditation.jpg" alt="meditation image"></a>
+	</div>
+        
+      <div>
+        
+      </div>
+    </header>
+
+    
+	<!-- navigation -->
+    <nav> 
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hiking.html">Hiking</a></li>
+        <li><a href="meditation.html">Meditations</a></li>
+		<li><a href="cycling.html">Cycling</a></li>
+		<li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <main>
+	<h2>Get Started Today</h2>
+		<p><div id="currentDate"></div></p>
+		<h2>Come Learn to Meditate</h2>
+		<h3 style = color:#073763;>Facts on the Benefits of Meditation</h3>
+		
+		<section class="page">
+      <ul class="accordion">
+        <li>
+          <button class="accordion-control">Memory</button>
+          <div class="accordion-panel">
+            <p>Meditating improves memory and promotes cognative function. A Mayo Clinic study showed that people in their mid 50s who meditate 25 minutes a day had the cognative abilities of a 24 year old.</p>
+          </div>
+        </li>
+        <li>
+			
+			<button class="accordion-control">Stress Reduction</button>
+          <div class="accordion-panel">
+            <p>A key benefit to meditation is stress reduction, one of the key reasons people try meditation. With the stressors of the modern world meditation can help us to 
+			disconnect from the demands of everyday life.
+			</p>
+          </div>
+        </li>	
+		<li>
+          <button class="accordion-control">Increases Emotional Awareness</button>
+          <div class="accordion-panel">
+            <p>Meditating regulary can help increase your emotional awareness by increasing your self awareness, which can make
+			you the best version of yourself.</p>
+          </div>
+        </li>
+        <li>
+          <button class="accordion-control">Control Anxiety</button>
+          <div class="accordion-panel">
+            <p>Another major benefit of regular meditation is it can help you control your anxiety.
+Numerous studies have shown that meditation greatly increases one's ability to manage anxiety. </p>
+          </div>
+        </li>		
+      </ul>
+    </section>
+	
+	<div id="data">no data</div>
+      
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2022. All Rights Reserved.</p>
+      <p><a href="mailto:michael.tinnin@hotmail.com">ftcollinsWellness@gmail.com</a></p>
+	  	<a href=https://www.facebook.com target="blank"><img src="images/image2.png" alt="facebook logo"></a>
+      <a href=https://www.twitter.com target="blank"><img src="images/image3.png" alt="twitter logo"></a>
+    </footer>
+    </div>
+	<script src="scripts/script.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script>
+$('.accordion').on('click', '.accordion-control', function(e){ // When clicked
+  e.preventDefault();                    // Prevent default action of button
+  $(this)                                // Get the element the user clicked on
+    .next('.accordion-panel')            // Select following panel 
+    .not(':animated')                    // If it is not currently animating
+    .slideToggle();                      // Use slide toggle to show or hide it
+});	
+$.getJSON( "http://date.jsontest.com/", function( data ) {
+$("#currentDate").html(data.date);
+});
+
+var curYear = new Date().getFullYear();
+			var wellnessCenter = {
+			name: "Ft Collins Fitness & Wellness",
+			yearStarted: 2015,
+			getYears: function () { return (curYear - this.yearStarted); }
+			}
+			var dataArea = document.getElementById('data');
+			dataArea.innerHTML = '<b>' + wellnessCenter.name + ' has been helping others for ' +
+			wellnessCenter.getYears() + ' years!</b>';
+	</script>
+  </body>
+</html>
+
+<!--
+  Student Name: Michael Tinnin
+  File Name: template.html
+  Date: 4/18/2022
+-->

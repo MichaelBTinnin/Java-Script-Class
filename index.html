@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FT.COLLINS FITNESS & WELLNESS: Template</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    
+
+
+<link rel="manifest" href="images/site.webmanifest">
+  </head>
+  <body>
+    <div>
+   <header>
+      <div>
+	  <h1>🕉️FT. COLLINS FITNESS & WELLNESS🕉️</h1>
+        <a href="index.html"><img src="images/nature.jpg" alt="nature image"></a>
+	</div>
+        
+      <div>
+        
+      </div>
+    </header>
+
+    
+	<!-- navigation -->
+    <nav> 
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hiking.html">Hiking</a></li>
+        <li><a href="meditation.html">Meditations</a></li>
+		<li><a href="cycling.html">Cycling</a></li>
+		<li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <main>
+		<h2>Intermediate Practioner Events</h2>
+      <div>
+      <form id="triggers" action="/login" method="post">
+        <div>
+          <fieldset>
+            <legend>Programs of Interest</legend>
+            <label><input type="checkbox" value="all" id="all">All</label>
+            <label><input type="checkbox" name="trigger" value="stress">Hiking</label>
+            <label><input type="checkbox" name="trigger" value="insomnia">Meditation</label>
+            <label><input type="checkbox" name="trigger" value="caffine">Cycling</label>
+		</fieldset>
+        </div>
+		
+      </form>
+	  <h3>We Have Cycling, Meditation, and Hiking Events</h3>
+	  <h4>Enjoy Our Welcoming Environment</h4>
+	  <header>Intermediate Participants With 5 - 12 Years Experience</header>
+    <div>
+      <form id="data" action="/data/" method="post">
+        <div id="main">
+          <fieldset>
+            <legend>Verify Experience In Years</legend>
+            
+            <input type="number" required min="5" max="12"/>
+            <input type="submit" value="Calculate" />
+          </fieldset>
+        </div>
+      </form>
+    </div>
+   
+      <form id="login" action="/login/" method="post">
+        <div id="main">
+          <fieldset>
+            <legend>Login</legend>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd" />
+            <input type="submit" value="Login" />
+          </fieldset>
+        </div>
+      </form>
+    </div>
+    <script src="utilities.js"></script>
+    <script>
+(function() {
+  var form     = document.getElementById('triggers'); // Get form
+  var elements = form.elements;                      // All elements in form
+  var options  = elements.trigger;                     // Array: causes checkboxes
+  var all      = document.getElementById('all');     // The 'All' checkbox
+  // insert your code here!
+	function upDateAll(){
+		for(var i = 0; i < options.length; i++){
+			options[i].checked = all.checked;
+		}
+	}
+	addEvent(all, 'change', upDateAll);
+	
+	function clearAllOptions(e){
+		var target = e.target ||e.srcElement;
+		if(!target.checked){
+			all.checked = false
+		}
+	}
+	for(var i = 0; i < options.length; i++){
+		addEvent(options[i], 'change', clearAllOptions);
+	}
+  
+}());
+function getFirstChar(str) { return (str.substring(0,1)); };
+	(function(){ 
+		var form = document.getElementById('login');       
+		addEvent(form, 'submit', function(e) {             
+			e.preventDefault();                              
+			var elements = this.elements;                 
+			var username = elements.username.value;  
+			var name = document.getElementById('username').value;
+			var password = document.getElementById('pwd').value;
+			
+		var substring = getFirstChar(name);
+		
+		if(substring === "S"){
+			document.getElementById('main').innerHTML = 'log in success!';
+		}
+		
+		else{
+			document.getElementById('main').innerHTML = 'logon failure!';
+		}
+		
+		});
+	}());
+(function(){ 
+		var form = document.getElementById('data');  
+		addEvent(form, 'submit', function(e) {         
+			e.preventDefault();                         
+			var elements = this.elements;             
+			
+			var msg = "You qualify";
+			document.getElementById('main').textContent = msg; 
+		});
+	}());		
+	
+  </script>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2022. All Rights Reserved.</p>
+      <p><a href="mailto:michael.tinnin@hotmail.com">ftcollinsWellness@gmail.com</a></p>
+	  	<a href=https://www.facebook.com target="blank"><img src="images/image2.png" alt="facebook logo"></a>
+      <a href=https://www.twitter.com target="blank"><img src="images/image3.png" alt="twitter logo"></a>
+    </footer>
+    </div>
+	<script src="scripts/script.js"></script>
+  </body>
+</html>
+
+<!--
+  Student Name: Michael Tinnin
+  File Name: template.html
+  Date: 4/18/2022
+-->
